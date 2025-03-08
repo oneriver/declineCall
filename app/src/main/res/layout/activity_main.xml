@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- 기존 스위치들 -->
+    <Switch
+        android:id="@+id/switch_block_calls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알 수 없는 번호 전화 차단"
+        android:checked="true"
+        android:layout_marginBottom="16dp" />
+
+    <Switch
+        android:id="@+id/send_parents_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알 수 없는 번호 SMS 내용전달"
+        android:checked="true" />
+
+    <!-- 콜 스크리닝 역할 요청 버튼 -->
+    <Button
+        android:id="@+id/btn_set_call_screening_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="콜 스크리닝 역할 요청"
+        android:layout_marginTop="32dp" />
+
+    <!-- SMS 전달 권한 신청 버튼 추가 -->
+    <Button
+        android:id="@+id/btn_request_sms_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SMS 전달을 위한 권한신청"
+        android:layout_marginTop="16dp" />
+
+    <!-- 부모 연락처 입력 UI (ConstraintLayout) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <!-- 타이틀 텍스트 -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="부모 연락처 입력"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 부모 연락처 1 입력 필드 -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilParentPhone1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="부모 연락처 1 (예: 010-1234-5678)"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_parent_phone1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 부모 연락처 2 입력 필드 (선택) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilParentPhone2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="부모 연락처 2 (선택)"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilParentPhone1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_parent_phone2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 저장 버튼 -->
+        <Button
+            android:id="@+id/btn_save_parent_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장"
+            app:layout_constraintTop_toBottomOf="@id/tilParentPhone2"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
